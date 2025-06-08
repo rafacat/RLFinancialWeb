@@ -1,0 +1,317 @@
+/* Estilos Globais para a RL Financial - AGORA COM RALWAY E TEMA ESCURO */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap'); /* Esta linha vem do Google Fonts */
+
+/* Definição das variáveis de cor (adaptadas para o tema escuro) */
+:root {
+    --primary-color: #23CF93;   /* Verde vibrante - para destaque, botões */
+    --secondary-color: #37A47E; /* Verde intermediário - para links, bordas */
+    --tertiary-color: #3D7A64;  /* Verde mais escuro - pode ser usado para fundos de seções ou bordas */
+    --dark-green: #354F46;      /* Verde escuro profundo - fundo principal */
+    --almost-black: #2B3330;    /* Quase preto - fundo mais escuro, pode ser para rodapé ou elementos específicos */
+
+    --text-light: #f0f0f0;      /* Texto claro em fundo escuro */
+    --text-medium: #c0c0c0;     /* Texto médio para informações secundárias */
+}
+
+body {
+   font-family: 'Raleway', sans-serif;
+   line-height: 1.6;
+   margin: 0;
+   padding: 0;
+   background-color: var(--dark-green);
+   color: var(--text-light);
+}
+
+/* Estilos para o Cabeçalho (Header) */
+header {
+   background-color: var(--almost-black); /* Fundo escuro do cabeçalho */
+   padding: 15px 40px; /* Espaçamento interno: um pouco menos em cima/baixo, mais nas laterais */
+   box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* Sombra para dar profundidade */
+
+   /* Configurações do Flexbox para alinhar os conteúdos principais do header */
+   display: flex; /* Transforma o header em um container flexível */
+   justify-content: space-between; /* Empurra o conteúdo de 'branding' para a esquerda e 'ações' para a direita */
+   align-items: center; /* Alinha os itens verticalmente ao centro do header */
+}
+
+/* Grupo do Logo e Nome da Empresa */
+.header-branding {
+   display: flex;
+   align-items: center;
+}
+
+.logo {
+   max-width: 100px; /* Aumentei o tamanho do logo para 100px. Ajuste conforme achar melhor. */
+   height: auto;
+   margin-right: 20px; /* Aumentei o espaçamento entre o logo e o nome para 20px. Ajuste se precisar. */
+}
+
+.header-branding h1 {
+   color: var(--primary-color);
+   margin: 0;
+   font-size: 2em; /* Aumentei um pouco o tamanho da fonte do nome da empresa para 2em. */
+   letter-spacing: 1px;
+}
+
+/* Grupo dos Botões de Ação (Entrar e Cadastrar) */
+.header-actions {
+   display: flex; /* Ativa o Flexbox para alinhar os botões um ao lado do outro */
+   align-items: center; /* Alinha os botões verticalmente ao centro */
+}
+
+.header-actions button {
+   margin-left: 20px; /* Aumentei o espaçamento entre os botões para 20px */
+   padding: 12px 25px; /* Aumentei o padding para deixá-los maiores e mais clicáveis */
+   font-size: 1.05em; /* Levemente maior que o padrão para texto */
+   font-weight: 700; /* Deixa o texto do botão bem negrito */
+   border-radius: 8px; /* Cantos um pouco mais arredondados para um toque moderno */
+   transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+}
+
+/* Estilo para o botão de Entrar */
+.login-btn {
+   background-color: transparent;
+   color: var(--text-light);
+   border: 2px solid var(--secondary-color); /* Borda mais grossa para mais presença */
+   box-shadow: 0 0 5px rgba(55, 164, 126, 0.5); /* Sombra sutil que "brilha" um pouco */
+}
+
+.login-btn:hover {
+   border-color: var(--primary-color);
+   color: var(--primary-color);
+   background-color: rgba(35, 207, 147, 0.15); /* Fundo mais visível ao passar o mouse */
+   box-shadow: 0 0 15px rgba(35, 207, 147, 0.7); /* Sombra mais intensa no hover */
+}
+
+/* Estilo para o botão de Cadastrar (com destaque) */
+.signup-btn.primary {
+   background-color: var(--primary-color); /* Fundo verde vibrante */
+   color: var(--almost-black); /* Texto escuro para alto contraste */
+   border: none; /* Sem borda, já que o fundo é sólido */
+   box-shadow: 0 0 10px rgba(35, 207, 147, 0.6); /* Sombra que "brilha" para destacar */
+}
+
+.signup-btn.primary:hover {
+   background-color: var(--secondary-color); /* Tom ligeiramente diferente ao passar o mouse */
+   transform: translateY(-3px); /* Efeito de "levantar" um pouco mais pronunciado */
+   box-shadow: 0 0 20px rgba(35, 207, 147, 0.9); /* Sombra mais forte no hover */
+}
+
+
+/* Estilos para a Navegação Principal (abaixo do header) */
+.main-nav {
+   background-color: var(--almost-black); /* Fundo escuro, combinando com o header */
+   padding: 10px 0; /* Espaçamento superior e inferior */
+   box-shadow: 0 4px 10px rgba(0,0,0,0.4); /* Sombra mais forte para destacar */
+   width: 100%; /* Ocupa a largura total da tela */
+   text-align: center; /* Centraliza a lista de navegação */
+   z-index: 1000; /* Garante que a nav fique acima de outros elementos ao rolar */
+
+   /* PROPRIEDADES PARA TORNAR A NAV FIXA */
+   position: sticky; /* ou position: fixed; */
+   top: 0; /* Cola a nav no topo da janela do navegador */
+   /* Se você usar position: fixed;, ela fica fixa no topo da tela.
+      Se usar position: sticky;, ela rola com a página até chegar no topo,
+      e então fica fixa. sticky é geralmente preferível para este caso. */
+}
+
+.main-nav ul {
+   list-style: none; /* Remove os marcadores de lista */
+   padding: 0;
+   margin: 0;
+   display: inline-block; /* Permite que a ul seja centralizada pelo text-align */
+}
+
+.main-nav li {
+   display: inline-block; /* Coloca os itens da lista na mesma linha, mas permite espaçamento */
+   margin: 0 25px; /* Espaço entre os botões de navegação */
+}
+
+.main-nav a {
+   color: var(--text-light); /* Links da navegação em cor clara */
+   text-decoration: none;
+   font-weight: 600; /* Mais negrito */
+   padding: 12px 0; /* Espaçamento interno */
+   display: block; /* Garante que o padding funcione */
+   transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.main-nav a:hover {
+   color: var(--primary-color); /* Verde vibrante ao passar o mouse */
+   border-bottom: 2px solid var(--primary-color); /* Adiciona borda no hover também */
+}
+
+.main-nav a.active {
+   color: var(--primary-color);
+   border-bottom: 3px solid var(--primary-color); /* Borda com a cor principal */
+}
+
+/* Media Queries para Responsividade (ajustes para telas menores) */
+@media (max-width: 768px) {
+   header {
+       flex-direction: column; /* Em telas menores, o header vira coluna */
+       align-items: center; /* Centraliza os itens na coluna */
+       padding: 15px 10px; /* Reduz padding lateral */
+   }
+
+   .header-branding {
+       margin-bottom: 15px; /* Espaço entre o branding e as ações */
+   }
+
+   .logo {
+      max-width: 80px; /* Em telas menores, talvez seja bom reduzir um pouco o logo */
+      margin-right: 10px;
+  }
+
+   .header-branding h1 {
+       font-size: 1.8em; /* Ajusta o tamanho da fonte do nome da empresa */
+   }
+
+   .header-actions {
+       width: 100%; /* Ocupa a largura total */
+       justify-content: center; /* Centraliza os botões em telas pequenas */
+       margin-bottom: 15px; /* Espaço entre as ações e a navegação */
+   }
+
+   .header-actions button {
+      padding: 10px 20px; /* Reduz o padding em telas menores */
+      font-size: 0.95em;
+      margin: 0 8px; /* Reduz o espaçamento entre eles */
+  }
+
+  .main-nav {
+   padding: 8px 0; /* Reduz um pouco o padding em telas menores */
+   }
+
+   .main-nav ul {
+       display: flex; /* Volta a ser flex para alinhar em linha */
+       flex-direction: row; /* Mantém em linha */
+       justify-content: center;
+       flex-wrap: wrap; /* Quebra linha se não couber */
+   }
+
+   .main-nav li {
+       margin: 0 15px; /* Espaçamento menor entre itens da nav */
+   }
+
+   .main-nav a {
+      padding: 10px 0; /* Reduz o padding vertical */
+  }
+
+  /* Ajuste o padding-top do main para telas menores se o nav mudar de altura */
+  main {
+   padding-top: 70px; /* Exemplo de ajuste */
+   }
+}
+
+@media (max-width: 480px) {
+   .logo {
+      max-width: 60px; /* Reduz ainda mais para telas muito pequenas */
+  }
+  .header-branding h1 {
+   font-size: 1.5em; /* Reduz a fonte para telas muito pequenas */
+   }
+   .main-nav li {
+       margin: 5px; /* Reduz mais o espaçamento em telas muito pequenas */
+   }
+
+   .header-actions button {
+      padding: 8px 15px; /* Reduz ainda mais em telas muito pequenas */
+      font-size: 0.85em;
+      margin: 0 5px;
+  }
+}
+
+/* Estilos para o Conteúdo Principal (Main) */
+main {
+   max-width: 1200px; /* Mantém a largura máxima do conteúdo principal */
+   margin: 20px auto; /* Centraliza o bloco principal na tela */
+   padding-top: 80px;
+   padding: 20px;
+   background-color: var(--almost-black);
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+   border-radius: 8px;
+   /* Remover text-align: center; se você adicionou aqui, pois vamos aplicar nas seções */
+}
+
+/* Estilos para as Seções (Home, Ferramenta de Gastos, Dicas, Sobre Nós, Contato) */
+/* Isso centralizará o texto e os elementos inline/inline-block dentro de cada seção */
+section {
+   text-align: center; /* Centraliza o texto e elementos inline dentro de cada seção */
+   padding: 40px 20px; /* Aumenta o espaçamento interno das seções para dar mais 'respiro' */
+   margin-bottom: 20px; /* Espaçamento entre as seções */
+   border-bottom: 1px solid var(--tertiary-color); /* Uma linha sutil para separar as seções */
+}
+
+section:last-child {
+   border-bottom: none; /* Remove a linha da última seção */
+}
+
+
+/* Estilos Básicos para Cabeçalhos */
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Raleway', sans-serif;
+   color: var(--primary-color);
+   margin-bottom: 15px;
+   /* Se você quer que os títulos sejam centralizados, o text-align: center na section já fará isso */
+}
+
+/* Estilos para Parágrafos */
+p {
+   margin: 0 auto 10px auto; /* Centraliza o parágrafo se ele tiver uma largura definida */
+   max-width: 800px; /* Opcional: limita a largura do parágrafo para não ficar muito longo em telas grandes */
+   color: var(--text-medium);
+}
+
+/* ... (Restante do seu CSS para links, botões, header, nav etc.) ... */
+
+/* Ajustes para o formulário na seção de gastos para que ele também possa ser centralizado */
+#ferramenta-gastos form {
+   display: inline-block; /* Permite centralizar o formulário com text-align: center do pai */
+   text-align: left; /* Garante que os campos dentro do formulário se alinhem à esquerda dentro dele */
+   max-width: 500px; /* Largura máxima para o formulário, ajuste conforme o seu layout */
+   margin: 20px auto; /* Centraliza o formulário e dá margem */
+   padding: 25px;
+   background-color: var(--dark-green); /* Um fundo levemente diferente para o formulário */
+   border-radius: 8px;
+   box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+#ferramenta-gastos form label {
+   display: block; /* Garante que o label ocupe uma linha inteira */
+   margin-bottom: 5px;
+   color: var(--text-light);
+   text-align: left; /* Garante que o label esteja à esquerda dentro do formulário */
+}
+
+#ferramenta-gastos form input[type="text"],
+#ferramenta-gastos form input[type="number"],
+#ferramenta-gastos form select {
+   width: calc(100% - 20px); /* Ocupa quase 100% da largura do pai */
+   padding: 10px;
+   margin-bottom: 15px;
+   border: 1px solid var(--tertiary-color);
+   border-radius: 4px;
+   background-color: var(--almost-black); /* Fundo dos inputs */
+   color: var(--text-light); /* Cor do texto dentro dos inputs */
+}
+
+#ferramenta-gastos form input::placeholder {
+   color: var(--text-medium); /* Cor do placeholder */
+}
+
+#ferramenta-gastos form button[type="submit"] {
+   width: 100%; /* Botão ocupa a largura total do formulário */
+   margin-top: 10px;
+}
+
+/* Estilos para o resumo de gastos */
+#resumo-gastos {
+   margin-top: 30px;
+   padding-top: 20px;
+   border-top: 1px solid var(--tertiary-color);
+   text-align: left; /* Alinha o texto do resumo de volta para a esquerda */
+   max-width: 500px; /* Mesma largura do formulário para alinhar */
+   margin-left: auto; /* Centraliza o resumo */
+   margin-right: auto; /* Centraliza o resumo */
+}
