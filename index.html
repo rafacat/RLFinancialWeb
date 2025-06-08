@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RL Financial - Sua Jornada Financeira Otimista</title>
+    </head>
+<body>
+
+    <header>
+        <h1>RL Financial</h1>
+        <p>Descomplicando suas finanças com otimismo!</p>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#ferramenta-gastos">Minha Ferramenta de Gastos</a></li>
+                <li><a href="#dicas">Dicas Otimistas</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h2>Bem-vindo(a) à RL Financial!</h2>
+            <p>Sua plataforma para ter mais controle financeiro e realizar seus sonhos. Vamos juntos plantar as sementes do seu futuro!</p>
+            <img src="caminho/para/imagem-motivacional.png" alt="Pessoas sorrindo e plantando dinheiro em um cofrinho">
+            <button>Comece a Economizar Agora!</button>
+        </section>
+
+        <section id="ferramenta-gastos">
+            <h2>Organize Seus Gastos de Forma Simples</h2>
+            <p>Descubra para onde seu dinheiro está indo e como otimizar suas finanças. Categorize seus gastos em Útil e Removível.</p>
+            <form>
+                <label for="descricao-gasto">Onde você gastou?</label>
+                <input type="text" id="descricao-gasto" placeholder="Ex: Café na padaria" required>
+
+                <label for="valor-gasto">Quanto você gastou?</label>
+                <input type="number" id="valor-gasto" step="0.01" min="0" placeholder="Ex: 5.50" required>
+
+                <label for="tipo-gasto">Tipo de Gasto:</label>
+                <select id="tipo-gasto" required>
+                    <option value="">Selecione...</option>
+                    <option value="util">Útil (Essencial)</option>
+                    <option value="removivel">Removível (Opcional)</option>
+                </select>
+
+                <button type="submit">Adicionar Gasto</button>
+            </form>
+            <div id="resumo-gastos">
+                <h3>Seu Resumo Mensal:</h3>
+                <p>Total Gasto: R$ <span id="total-geral">0.00</span></p>
+                <p>Gastos Úteis: R$ <span id="total-util">0.00</span></p>
+                <p>Gastos Removíveis: R$ <span id="total-removivel">0.00</span></p>
+            </div>
+        </section>
+
+        <section id="dicas">
+            <h2>Dicas Otimistas para o Seu Bolso!</h2>
+            <article>
+                <h3>5 Passos para Cortar Gastos Sem Dor</h3>
+                <p>Descubra como pequenas mudanças podem fazer uma grande diferença. <a href="#">Leia mais...</a></p>
+            </article>
+            <article>
+                <h3>Transforme o Pequeno Hábito em Grandes Economias</h3>
+                <p>Aquela ida diária à padaria pode estar te sabotando... ou te impulsionando! <a href="#">Leia mais...</a></p>
+            </article>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre a RL Financial</h2>
+            <p>Nascida da paixão de Rafael em descomplicar finanças e do sonho de deixar um legado para sua filha Liz.</p>
+        </section>
+
+        <section id="contato">
+            <h2>Fale Conosco!</h2>
+            <p>Tem dúvidas ou quer compartilhar sua história de sucesso? Adoraríamos ouvir você!</p>
+            <address>
+                Email: <a href="mailto:contato@rlfinancial.com">contato@rlfinancial.com</a><br>
+                (Outras formas de contato em breve!)
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 RL Financial. Todos os direitos reservados. Plantando futuro, colhendo tranquilidade.</p>
+        </footer>
+
+</body>
+</html>
