@@ -146,6 +146,139 @@ header {
    border-bottom: 3px solid var(--primary-color); /* Borda com a cor principal */
 }
 
+/* Seção de Boas-Vindas - Início */
+#inicio {
+   background-color: var(--almost-black); /* Fundo escuro para a seção, harmonizando com o header */
+   padding: 80px 20px; /* Espaçamento interno generoso em cima e embaixo */
+   text-align: center; /* Centraliza todo o conteúdo (títulos, parágrafos, imagem) */
+   display: flex; /* Usamos flexbox para controlar melhor o fluxo dos elementos */
+   flex-direction: column; /* Organiza os itens em coluna */
+   align-items: center; /* Centraliza os itens horizontalmente */
+   justify-content: center; /* Centraliza os itens verticalmente (se houver espaço) */
+   /* min-height: calc(100vh - var(--altura-header) - var(--altura-nav)); /* Opcional: Garante que a seção ocupe a maior parte da tela inicial */
+}
+
+/* Título (h2) da seção Início */
+#inicio h2 {
+   color: var(--primary-color); /* Cor verde vibrante para o título principal */
+   font-size: 3em; /* Tamanho da fonte grande para impacto */
+   margin-bottom: 25px; /* Espaço abaixo do título */
+   line-height: 1.2; /* Espaçamento entre as linhas */
+   max-width: 900px; /* Aumentei um pouco o max-width para o título mais longo */
+   font-weight: 700; /* Mais negrito para destaque */
+}
+
+/* Parágrafo (p) de descrição */
+#inicio p {
+   color: var(--text-medium); /* Cor de texto clara, mas suave */
+   font-size: 1.3em; /* Um pouco maior para ser facilmente legível */
+   line-height: 1.7; /* Bom espaçamento entre as linhas */
+   max-width: 700px; /* Limita a largura dos parágrafos */
+   margin: 0 auto 20px auto; /* Centraliza e adiciona margem inferior. Ajustei para 20px para ter espaço entre os 2 parágrafos */
+   text-align: justify;
+}
+
+/* Margem extra para o último parágrafo antes do botão/imagem */
+#inicio p:last-of-type {
+   margin-bottom: 40px; /* Margem maior para separar o último parágrafo do botão */
+}
+
+/* Botão "Comece Sua Transformação Financeira Agora!" */
+.cta-button { /* Se você já usou .hero-section .cta-button, mantenha, ou use uma classe mais genérica como .button */
+   background-color: var(--primary-color);
+   color: var(--almost-black);
+   padding: 18px 40px;
+   border: none; /* remove a borda padrão de links */
+   border-radius: 10px;
+   text-decoration: none; /* remove o sublinhado padrão de links */
+   font-size: 1.4em;
+   font-weight: 800;
+   cursor: pointer;
+   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+   box-shadow: 0 6px 15px rgba(35, 207, 147, 0.6);
+   margin-bottom: 60px; /* Margem abaixo do botão para separar da imagem */
+   display: inline-block; /* Crucial para que o padding e margens funcionem como em um botão */
+}
+
+.cta-button:hover {
+   background-color: var(--secondary-color);
+   transform: translateY(-5px);
+   box-shadow: 0 10px 25px rgba(35, 207, 147, 0.9);
+}
+
+/* Imagem da Seção Início (agora após o botão) */
+#inicio img {
+   max-width: 75%; /* Aumentei um pouco para ter mais destaque */
+   height: auto;
+   border-radius: 15px;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+   margin: 0 auto; /* Centraliza a imagem */
+   display: block; /* Garante que ela se comporte como um bloco para o margin: auto */
+}
+
+/* Seção de Dicas de Economia */
+#dicas-economia {
+   background-color: var(--dark-green); /* Um verde escuro um pouco diferente para esta seção */
+   padding: 80px 20px; /* Espaçamento interno */
+   text-align: center; /* Centraliza o título e os artigos */
+   color: var(--text-light); /* Cor do texto padrão para esta seção */
+   border-radius: 12px; /* Se você já tem um border-radius na section genérica, este pode ser opcional */
+   margin-bottom: 20px; /* Para que a sombra não seja cortada e a seção se separe da próxima */
+   overflow: hidden; /* Garante que o conteúdo e a sombra se encaixem no arredondamento */
+}
+
+#dicas-economia h2 {
+   color: var(--primary-color); /* Título principal em verde vibrante */
+   font-size: 2.8em; /* Tamanho grande para o título da seção */
+   margin-bottom: 50px; /* Espaço abaixo do título antes das dicas */
+   font-weight: 700;
+}
+
+/* Estilo para cada artigo de dica */
+#dicas-economia article {
+   background-color: var(--almost-black); /* Fundo mais escuro para os artigos */
+   border-radius: 10px; /* Cantos arredondados */
+   padding: 30px; /* Espaçamento interno dentro de cada artigo */
+   margin: 0 auto 30px auto; /* Centraliza o artigo e adiciona margem inferior para separar */
+   max-width: 600px; /* Limita a largura de cada artigo para melhor leitura */
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidade */
+   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para o hover */
+}
+
+#dicas-economia article:hover {
+   transform: translateY(-5px); /* Efeito de "levantar" ao passar o mouse */
+   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Sombra mais intensa no hover */
+}
+
+/* Título (h3) de cada dica */
+#dicas-economia article h3 {
+   color: var(--primary-color); /* Título da dica em verde vibrante */
+   font-size: 1.8em; /* Tamanho do título da dica */
+   margin-bottom: 15px; /* Espaço abaixo do título da dica */
+   font-weight: 600;
+}
+
+/* Parágrafo (p) de cada dica */
+#dicas-economia article p {
+   color: var(--text-medium); /* Cor de texto suave */
+   font-size: 1.1em; /* Tamanho da fonte do parágrafo da dica */
+   line-height: 1.6;
+   margin-bottom: 15px; /* Espaço antes do link "Leia mais..." */
+}
+
+/* Link "Leia mais..." */
+#dicas-economia article a {
+   color: var(--secondary-color); /* Cor do link em um verde secundário */
+   text-decoration: none; /* Remove sublinhado */
+   font-weight: bold;
+   transition: color 0.3s ease;
+}
+
+#dicas-economia article a:hover {
+   color: var(--primary-color); /* Cor mais vibrante no hover */
+   text-decoration: underline; /* Adiciona sublinhado no hover */
+}
+
 /* Media Queries para Responsividade (ajustes para telas menores) */
 @media (max-width: 768px) {
    header {
@@ -202,6 +335,59 @@ header {
   main {
    padding-top: 70px; /* Exemplo de ajuste */
    }
+   #inicio {
+      padding: 60px 15px; /* Reduz padding em telas menores */
+  }
+
+  #inicio h2 {
+      font-size: 2em; /* Reduz tamanho do título */
+  }
+
+  #inicio p {
+      font-size: 1em; /* Reduz tamanho do parágrafo */
+      max-width: 90%;
+      margin-bottom: 15px; /* Ajuste para menor espaçamento entre parágrafos em mobile */
+      text-align: justify;
+  }
+
+  #inicio p:last-of-type {
+   margin-bottom: 30px; /* Espaço antes do botão em mobile */
+   }
+
+  #inicio img {
+      max-width: 90%; /* A imagem ocupa mais espaço em telas menores */
+      /* margin: 20px auto 40px auto; */
+  }
+
+  #inicio button {
+      padding: 15px 30px; /* Reduz padding do botão */
+      font-size: 1.2em;
+      margin-bottom: 40px; /* Espaço antes da imagem em mobile */
+  }
+
+  #dicas-economia {
+   padding: 60px 15px;
+}
+
+#dicas-economia h2 {
+   font-size: 2.2em;
+   margin-bottom: 40px;
+}
+
+#dicas-economia article {
+   padding: 25px;
+   margin-bottom: 25px;
+   max-width: 90%; /* Ocupa mais largura em telas menores */
+}
+
+#dicas-economia article h3 {
+   font-size: 1.5em;
+}
+
+#dicas-economia article p {
+   font-size: 1em;
+}
+
 }
 
 @media (max-width: 480px) {
@@ -220,6 +406,31 @@ header {
       font-size: 0.85em;
       margin: 0 5px;
   }
+   #inicio h2 {
+      font-size: 1.8em; /* Ajusta mais o título */
+   }
+
+   #inicio p {
+      font-size: 0.95em; /* Ajusta mais o parágrafo */
+      text-align: justify;
+   }
+
+   #inicio button {
+      padding: 12px 25px; /* Botão menor em telas muito pequenas */
+      font-size: 1em;
+   }
+
+   #dicas-economia h2 {
+      font-size: 1.8em;
+  }
+
+  #dicas-economia article h3 {
+      font-size: 1.3em;
+  }
+
+  #dicas-economia article p {
+      font-size: 0.95em;
+  }
 }
 
 /* Estilos para o Conteúdo Principal (Main) */
@@ -230,7 +441,8 @@ main {
    padding: 20px;
    background-color: var(--almost-black);
    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-   border-radius: 8px;
+   border-radius: 12px;
+   overflow: hidden;
    /* Remover text-align: center; se você adicionou aqui, pois vamos aplicar nas seções */
 }
 
@@ -241,6 +453,8 @@ section {
    padding: 40px 20px; /* Aumenta o espaçamento interno das seções para dar mais 'respiro' */
    margin-bottom: 20px; /* Espaçamento entre as seções */
    border-bottom: 1px solid var(--tertiary-color); /* Uma linha sutil para separar as seções */
+   border-radius: 12px; /* Cantos arredondados */
+   overflow: hidden;
 }
 
 section:last-child {
