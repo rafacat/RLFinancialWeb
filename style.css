@@ -279,6 +279,324 @@ header {
    text-decoration: underline; /* Adiciona sublinhado no hover */
 }
 
+/* Estilo para o span "Leia mais..." que agora aciona o player */
+.tip-card .read-more {
+   color: var(--secondary-color); /* Mesma cor do link, mas agora é um span */
+   text-decoration: none;
+   font-weight: bold;
+   cursor: pointer; /* Indica que é clicável */
+   transition: color 0.3s ease;
+   display: inline-block; /* Para que o hover funcione melhor */
+   margin-top: 10px; /* Espaço acima */
+}
+
+.tip-card .read-more:hover {
+   color: var(--primary-color);
+   text-decoration: underline;
+}
+
+
+/* Estilo para o container do podcast player */
+.podcast-player {
+   margin-top: 25px; /* Espaço entre o parágrafo e o player */
+   border-top: 1px solid var(--tertiary-color); /* Uma linha sutil acima do player */
+   padding-top: 20px; /* Espaço entre a linha e o player */
+}
+
+/* Estilo para o elemento de áudio em si (controles padrão do navegador) */
+.podcast-player audio {
+   width: 100%; /* Ocupa toda a largura do card */
+   max-width: 400px; /* Limita a largura do player em telas grandes */
+   margin: 0 auto 15px auto; /* Centraliza e adiciona margem */
+   display: block; /* Para o margin auto funcionar */
+   filter: invert(0.9) hue-rotate(180deg); /* Opcional: Tenta inverter as cores dos controles para combinar com o tema escuro */
+}
+
+/* Estilo para a descrição do podcast */
+.podcast-description {
+   font-size: 0.95em;
+   color: var(--text-medium);
+   margin-top: 10px;
+   font-style: italic;
+}
+
+/* Seção Sobre Nós */
+#sobre-nos {
+   background-color: var(--almost-black); /* Fundo da seção */
+   padding: 80px 20px;
+   text-align: center; /* Centraliza o título e o parágrafo introdutório */
+   color: var(--text-light); /* Cor do texto padrão */
+   border-radius: 12px; /* Mantém o arredondamento das bordas */
+   margin-bottom: 20px; /* Para se separar da próxima seção */
+}
+
+#sobre-nos h2 {
+   color: var(--primary-color);
+   font-size: 2.8em;
+   margin-bottom: 30px;
+   font-weight: 700;
+   max-width: 900px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#sobre-nos .intro-paragraph {
+   font-size: 1.2em;
+   line-height: 1.8;
+   max-width: 800px;
+   margin: 0 auto 60px auto; /* Mais espaço abaixo para separar do conteúdo principal */
+   color: var(--text-medium);
+}
+
+/* Container para a história (texto e imagem lado a lado) */
+.story-content {
+   display: flex;
+   flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+   justify-content: center; /* Centraliza os itens */
+   align-items: flex-start; /* Alinha o topo do texto com o topo da imagem */
+   gap: 40px; /* Espaço entre os itens */
+   max-width: 1000px; /* Largura máxima para este bloco */
+   margin: 0 auto 60px auto; /* Centraliza e adiciona margem inferior */
+}
+
+.story-text {
+   flex: 1; /* Ocupa o espaço disponível */
+   min-width: 300px; /* Largura mínima para o texto não ficar muito espremido */
+   text-align: left; /* Alinha o texto à esquerda para leitura */
+   background-color: var(--dark-green); /* Fundo para o bloco de texto */
+   padding: 30px;
+   border-radius: 10px;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.story-text h3 {
+   color: var(--primary-color);
+   font-size: 1.8em;
+   margin-bottom: 15px;
+   font-weight: 600;
+}
+
+.story-text p {
+   color: var(--text-light);
+   font-size: 1.05em;
+   line-height: 1.7;
+   margin-bottom: 15px; /* Espaço entre parágrafos */
+   text-align: justify; /* Mantenha justificado se preferir */
+}
+
+.story-image {
+   flex-shrink: 0; /* Evita que a imagem encolha */
+   max-width: 400px; /* Tamanho máximo da imagem */
+   border-radius: 10px;
+   overflow: hidden; /* Garante que a imagem se ajuste ao border-radius */
+   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.story-image img {
+   width: 100%; /* Imagem preenche o container */
+   height: auto;
+   display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+/* Seção da Missão */
+.our-mission {
+   background-color: var(--dark-green); /* Fundo para a missão */
+   padding: 40px;
+   border-radius: 10px;
+   max-width: 800px;
+   margin: 0 auto 60px auto; /* Centraliza e adiciona margem inferior */
+   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+   text-align: center; /* Centraliza o texto dentro da missão */
+}
+
+.our-mission h3 {
+   color: var(--primary-color);
+   font-size: 2em;
+   margin-bottom: 20px;
+   font-weight: 600;
+}
+
+.our-mission p {
+   color: var(--text-light);
+   font-size: 1.1em;
+   line-height: 1.7;
+   max-width: 700px; /* Limita a largura do parágrafo da missão */
+   margin: 0 auto 15px auto;
+   text-align: justify; /* Mantenha justificado se preferir */
+}
+
+/* Botão de CTA Secundário */
+.secondary-cta {
+   background-color: transparent; /* Fundo transparente */
+   color: var(--secondary-color); /* Cor verde secundária */
+   border: 2px solid var(--secondary-color); /* Borda */
+   padding: 15px 30px;
+   border-radius: 8px;
+   text-decoration: none;
+   font-size: 1.1em;
+   font-weight: 700;
+   transition: all 0.3s ease;
+   display: inline-block;
+   box-shadow: 0 0 5px rgba(55, 164, 126, 0.5); /* Sombra sutil de brilho */
+}
+
+.secondary-cta:hover {
+   background-color: var(--primary-color); /* Fundo verde vibrante no hover */
+   color: var(--almost-black); /* Texto escuro */
+   border-color: var(--primary-color);
+   transform: translateY(-3px);
+   box-shadow: 0 0 15px rgba(35, 207, 147, 0.7); /* Sombra mais intensa */
+}
+
+/* Seção de Contato */
+#contato {
+   background-color: var(--dark-green);
+   padding: 80px 20px;
+   text-align: center;
+   color: var(--text-light);
+   border-radius: 12px;
+   margin-bottom: 20px;
+}
+
+#contato h2 {
+   color: var(--primary-color);
+   font-size: 2.8em;
+   margin-bottom: 30px;
+   font-weight: 700;
+}
+
+#contato .contact-intro {
+   font-size: 1.2em;
+   line-height: 1.7;
+   max-width: 700px;
+   margin: 0 auto 50px auto;
+   color: var(--text-medium);
+}
+
+/* Grid para as informações de contato (Email, Telefone, Instagram) */
+.contact-info-grid {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 30px; /* Reduzi um pouco o gap para caberem 3 itens */
+   max-width: 1000px; /* Aumentei o max-width para acomodar 3 itens */
+   margin: 0 auto 60px auto;
+}
+
+.contact-item {
+   background-color: var(--almost-black);
+   padding: 30px;
+   border-radius: 10px;
+   box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+   flex: 1; /* Permite que os itens cresçam e ocupem o espaço */
+   min-width: 250px; /* Ajustei o min-width para tentar caber 3 por linha */
+   max-width: 300px; /* Ajustei o max-width para caber 3 por linha */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+.contact-item i {
+   font-size: 3em;
+   color: var(--primary-color);
+   margin-bottom: 20px;
+}
+
+.contact-item h3 {
+   color: var(--primary-color);
+   font-size: 1.8em;
+   margin-bottom: 10px;
+   font-weight: 600;
+}
+
+.contact-item p {
+   color: var(--text-medium);
+   font-size: 1.05em;
+   line-height: 1.6;
+   margin-bottom: 15px;
+   max-width: 90%;
+   text-align: center;
+}
+
+.contact-item a {
+   color: var(--secondary-color);
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 1.1em;
+   transition: color 0.3s ease, text-decoration 0.3s ease;
+   word-break: break-word; /* Garante que longos endereços de email/links não quebrem o layout */
+}
+
+.contact-item a:hover {
+   color: var(--primary-color);
+   text-decoration: underline;
+}
+
+#contato .contact-outro {
+   font-size: 1.1em;
+   color: var(--text-light);
+   margin-top: 20px;
+   max-width: 600px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+/* Footer (Rodapé do Site) - Simplificado */
+footer {
+   background-color: var(--almost-black); /* Fundo escuro para o rodapé */
+   color: var(--text-medium); /* Cor de texto padrão para o rodapé */
+   padding: 60px 20px 30px; /* Padding generoso: cima, lados, baixo */
+   border-top: 1px solid var(--tertiary-color); /* Uma linha sutil no topo */
+   text-align: center; /* Centraliza todo o conteúdo */
+}
+
+/* Novo container para o conteúdo principal do footer (logo e slogan) */
+.footer-simple-content {
+   display: flex; /* Para centralizar o conteúdo com flexbox */
+   justify-content: center; /* Centraliza horizontalmente */
+   align-items: center; /* Centraliza verticalmente (se necessário, com altura) */
+   flex-direction: column; /* Coloca logo e slogan um abaixo do outro */
+   max-width: 600px; /* Limita a largura do bloco central */
+   margin: 0 auto 40px auto; /* Centraliza o bloco e adiciona margem para o copyright */
+}
+
+.footer-brand {
+   /* Não precisa de flex:1 ou min-width/max-width aqui,
+      pois ele é o único item no footer-simple-content */
+   text-align: center; /* Garante que logo e slogan estejam centralizados */
+}
+
+.footer-logo {
+   max-width: 180px; /* Tamanho ligeiramente maior para o logo se for o destaque */
+   height: auto;
+   margin-bottom: 15px;
+}
+
+.footer-brand p {
+   font-size: 1.1em; /* Slogan um pouco maior */
+   line-height: 1.6;
+   color: var(--text-light);
+   max-width: 400px; /* Limita a largura do slogan */
+   margin: 0 auto; /* Centraliza o slogan */
+}
+
+.footer-bottom {
+   border-top: 1px solid var(--tertiary-color); /* Linha divisória antes do copyright */
+   padding-top: 20px;
+   margin-top: 20px;
+}
+
+.footer-bottom p {
+   font-size: 0.9em;
+   color: var(--text-medium);
+}
+
 /* Media Queries para Responsividade (ajustes para telas menores) */
 @media (max-width: 768px) {
    header {
@@ -365,27 +683,132 @@ header {
       margin-bottom: 40px; /* Espaço antes da imagem em mobile */
   }
 
-  #dicas-economia {
-   padding: 60px 15px;
+   #dicas-economia {
+      padding: 60px 15px;
+   }
+
+   #dicas-economia h2 {
+      font-size: 2.2em;
+      margin-bottom: 40px;
+   }
+
+   #dicas-economia article {
+      padding: 25px;
+      margin-bottom: 25px;
+      max-width: 90%; /* Ocupa mais largura em telas menores */
+   }
+
+   #dicas-economia article h3 {
+      font-size: 1.5em;
+   }
+
+   #dicas-economia article p {
+      font-size: 1em;
+   }
+
+   #sobre-nos {
+      padding: 60px 15px; /* Reduz padding da seção */
+   }
+
+   #sobre-nos h2 {
+      font-size: 2.2em; /* Reduz o tamanho do título principal */
+      max-width: 90%; /* Ocupa mais largura */
+   }
+
+   #sobre-nos .intro-paragraph {
+      font-size: 1.1em;
+      margin-bottom: 40px;
+      max-width: 90%;
+   }
+
+   .story-content {
+      flex-direction: column; /* Coloca texto e imagem em coluna */
+      align-items: center; /* Centraliza os itens na coluna */
+      gap: 30px; /* Reduz o espaço entre eles */
+      margin-bottom: 40px;
+   }
+
+   .story-text {
+      min-width: unset; /* Remove min-width fixo para mobile */
+      width: 90%; /* Ocupa mais largura do container */
+      text-align: center; /* Centraliza o texto no card em mobile */
+      padding: 25px;
+   }
+
+   .story-text h3 {
+      font-size: 1.5em; /* Reduz o título da história */
+   }
+
+   .story-text p {
+      font-size: 1em; /* Ajusta o tamanho do parágrafo */
+      text-align: justify; /* Mantém justificado se funcionar bem, ou mude para 'left' */
+   }
+
+   .story-image {
+      max-width: 80%; /* A imagem ocupa mais espaço */
+   }
+
+   .our-mission {
+      max-width: 90%; /* Ocupa mais largura */
+      padding: 30px;
+      margin-bottom: 40px;
+   }
+
+   .our-mission h3 {
+      font-size: 1.8em;
+   }
+
+   .our-mission p {
+      font-size: 1em;
+      text-align: justify; /* Mantém justificado se funcionar bem, ou mude para 'left' */
+   }
+
+   .secondary-cta {
+      padding: 12px 25px;
+      font-size: 1em;
+   }
+
+   #contato {
+      padding: 60px 15px;
+  }
+
+  #contato h2 {
+      font-size: 2.2em;
+  }
+
+  #contato .contact-intro {
+      font-size: 1.1em;
+      margin-bottom: 40px;
+  }
+
+  .contact-info-grid {
+      /* Com 3 itens, talvez em 768px ainda caiba 2 por linha, ou talvez todos em coluna */
+      /* Vamos forçar 2 por linha se possível, ou coluna se não houver espaço */
+      flex-direction: row; /* Tentar manter em linha, se o wrap permitir */
+      justify-content: center;
+      gap: 20px; /* Reduz o gap para caber mais */
+      margin-bottom: 40px;
+      max-width: 600px; /* Limita a largura para ajudar no wrap */
+  }
+
+  .contact-item {
+      min-width: unset;
+      width: calc(50% - 10px); /* Tenta 2 itens por linha, considerando o gap */
+      max-width: 320px; /* Limite máximo para 2 itens */
+      padding: 25px;
+  }
+
+  footer {
+   padding: 50px 15px 20px;
 }
 
-#dicas-economia h2 {
-   font-size: 2.2em;
-   margin-bottom: 40px;
+.footer-logo {
+   max-width: 150px;
 }
 
-#dicas-economia article {
-   padding: 25px;
-   margin-bottom: 25px;
-   max-width: 90%; /* Ocupa mais largura em telas menores */
-}
-
-#dicas-economia article h3 {
-   font-size: 1.5em;
-}
-
-#dicas-economia article p {
+.footer-brand p {
    font-size: 1em;
+   max-width: 90%;
 }
 
 }
@@ -431,6 +854,124 @@ header {
   #dicas-economia article p {
       font-size: 0.95em;
   }
+
+  #sobre-nos {
+   padding: 40px 10px; /* Reduz ainda mais o padding */
+   }
+
+   #sobre-nos h2 {
+      font-size: 1.8em; /* Ajusta mais o título principal */
+   }
+
+   #sobre-nos .intro-paragraph {
+      font-size: 1em;
+      margin-bottom: 30px;
+   }
+
+   .story-content {
+      gap: 20px;
+      margin-bottom: 30px;
+   }
+
+   .story-text {
+      width: 95%; /* Ocupa quase toda a largura */
+      padding: 20px;
+   }
+
+   .story-text h3 {
+      font-size: 1.3em;
+   }
+
+   .story-text p {
+      font-size: 0.95em;
+      /* Em telas muito pequenas, o 'justify' pode criar 'rios de brancos'.
+         Considere mudar para text-align: left; aqui se necessário. */
+      text-align: left; /* Sugiro left para evitar problemas de legibilidade */
+   }
+
+   .story-image {
+      max-width: 95%;
+   }
+
+   .our-mission {
+      max-width: 95%;
+      padding: 25px;
+      margin-bottom: 30px;
+   }
+
+   .our-mission h3 {
+      font-size: 1.5em;
+   }
+
+   .our-mission p {
+      font-size: 0.95em;
+      /* O mesmo para os parágrafos da missão */
+      text-align: left; /* Sugiro left aqui também */
+   }
+
+   .secondary-cta {
+      padding: 10px 20px;
+      font-size: 0.9em;
+   }
+
+   #contato {
+      padding: 40px 10px;
+  }
+
+  #contato h2 {
+      font-size: 1.8em;
+  }
+
+  #contato .contact-intro {
+      font-size: 1em;
+      margin-bottom: 30px;
+  }
+
+  .contact-info-grid {
+      flex-direction: column; /* Em 480px, todos os itens em coluna */
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+  }
+
+  .contact-item {
+      width: 95%; /* Ocupa quase toda a largura */
+      max-width: unset; /* Remove o max-width para que se adapte bem */
+      padding: 20px;
+  }
+
+  .contact-item i {
+      font-size: 2em;
+  }
+
+  .contact-item h3 {
+      font-size: 1.3em;
+  }
+
+  .contact-item p {
+      font-size: 0.95em;
+  }
+
+  .contact-item a {
+      font-size: 0.95em;
+  }
+
+  footer {
+   padding: 40px 10px 15px;
+}
+
+.footer-logo {
+   max-width: 120px;
+}
+
+.footer-brand p {
+   font-size: 0.9em;
+   max-width: 95%;
+}
+
+.footer-bottom p {
+   font-size: 0.8em;
+}
 }
 
 /* Estilos para o Conteúdo Principal (Main) */

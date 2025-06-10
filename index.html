@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 <body>
 
    <header>
@@ -72,37 +73,96 @@
 
         <section id="dicas-economia">
             <h2>Dicas Otimistas para o Seu Bolso!</h2>
-            <article>
+
+            <article class="tip-card">
                 <h3>5 Passos para Cortar Gastos Sem Dor</h3>
-                <p>Descubra como pequenas mudanças podem fazer uma grande diferença. <a href="#">Leia mais...</a></p>
+                <p>Descubra como pequenas mudanças podem fazer uma grande diferença. <span class="read-more">Saiba mais...</span></p>
+                <div class="podcast-player" style="display: none;">
+                    <audio controls preload="none">
+                        <source src="audio/5-passos-cortar-gastos.mp3" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                    <p class="podcast-description">Ouça como pequenas mudanças podem revolucionar suas finanças sem dor!</p>
+                </div>
             </article>
-            <article>
+
+            <article class="tip-card">
                 <h3>Transforme o Pequeno Hábito em Grandes Economias</h3>
-                <p>Aquela ida diária à padaria pode estar te sabotando... ou te impulsionando! <a href="#">Leia mais...</a></p>
+                <p>Aquela ida diária à padaria pode estar te sabotando... ou te impulsionando! <span class="read-more">Saiba mais...</span></p>
+                <div class="podcast-player" style="display: none;">
+                    <audio controls preload="none">
+                        <source src="audio/habito-grandes-economias.mp3" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                    <p class="podcast-description">Descubra como um simples ajuste na sua rotina pode render economias surpreendentes.</p>
+                </div>
             </article>
+
         </section>
 
         <section id="sobre-nos">
-            <h2>Sobre a RL Financial</h2>
-            <p>Sou Rafael, e minha jornada começou em Limeira-SP e atualmente sou estudante de análise e desenvolvimento de sistema. E atualmente e para todo sempre, sou e serei o pai da Liz Sofia, na qual estou deixando esta empresa para que ela tenha uma vida muito mais leve e consiga aproveitar todas as alegrias que este mundo tem a oferecer.</p>
-            <p>Penso que o dinheiro é somente um recurso que serve para nos auxiliar no cotidiano e nos ajuda a entender o verdadeiro valor por trás de todas as coisas. Então, se estamos sofrendo por conta do dinheiro, estamos olhando ele de maneira errônea.</p>
-            <p>A RL Financial foi criada para ajudar e instruir as pessoas de que o “problema” financeiro que eles possuem em ter pouco dinheiro é, na verdade, uma vista desordenada de como elas enxergam e utilizam os seus recursos.</p>
-            <p>Assim como pai, querendo deixar um legado mais tranquilo para minha filha, busco também mostrar para vocês um caminho de maior conforto para que assim também desfrutem melhor a vida.</p>
-         </section>
+            <h2>Nossa História: O Legado que Inspira a RL Financial</h2>
+            <p class="intro-paragraph">Acreditamos que o controle financeiro é a base para uma vida plena e com propósito. Na RL Financial, essa crença nasceu de uma inspiração muito especial: o legado de um pai para sua filha.</p>
+
+            <div class="story-content">
+                <div class="story-text">
+                    <h3>A Semente Plantada: O Exemplo de um Pai</h3>
+                    <p>Em um mundo onde as finanças muitas vezes parecem um labirinto, um pai, com sabedoria e carinho, dedicou-se a ensinar à sua filha os princípios do bom uso do dinheiro. Mais do que números, ele transmitiu valores: a importância de semear hoje para colher amanhã, de construir segurança para voar mais alto e de desfrutar da vida sem culpa.</p>
+                    <p>Essa jornada de aprendizado, repleta de exemplos práticos e conversas abertas, transformou a relação da filha com suas finanças, de algo complexo para algo leve e empolgante.</p>
+                </div>
+                <div class="story-image">
+                    <img src="img/legado.jpeg" alt="Representação de legado financeiro">
+                </div>
+            </div>
+
+            <div class="our-mission">
+                <h3>Nossa Missão: Sua Jornada de Conforto Financeiro</h3>
+                <p>A RL Financial nasceu dessa inspiração, com a missão de expandir esse legado para todos. Queremos guiar você por um caminho de maior conforto e tranquilidade financeira, onde o dinheiro é um recurso para realizar seus sonhos, e não uma fonte de preocupação.</p>
+                <p>Nossa plataforma oferece ferramentas e dicas otimistas para que você, assim como a filha da nossa história, desfrute de todas as alegrias que a vida tem a oferecer, com a certeza de um futuro financeiro sólido e próspero.</p>
+            </div>
+
+            <a href="#contato" class="cta-button secondary-cta">Fale Conosco e Comece Sua História de Sucesso!</a>
+        </section>
 
         <section id="contato">
-            <h2>Fale Conosco!</h2>
-            <p>Tem dúvidas ou quer compartilhar sua história de sucesso? Adoraríamos ouvir você!</p>
-            <address>
-                Email: <a href="mailto:rlfinancialcontrol@gmail.com">rlfinancialcontrol@gmail.com</a><br>
-                (Outras formas de contato em breve!)
-            </address>
+            <h2>Fale Conosco na RL Financial!</h2>
+            <p class="contact-intro">Tem alguma dúvida, sugestão ou quer saber como podemos te ajudar a conquistar seus objetivos financeiros? Entre em contato conosco. Estamos aqui para te ouvir!</p>
+
+            <div class="contact-info-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> <h3>E-mail</h3>
+                    <p>Envie sua mensagem e responderemos em breve.</p>
+                    <a href="mailto:rlfinancialcontrol@gmail.com">rlfinancialcontrol@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i> <h3>Telefone & WhatsApp</h3>
+                    <p>Converse diretamente ou envie um WhatsApp para nós.</p>
+                    <a href="https://wa.me/5519987558774" target="_blank">(19) 98755-8774</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i> <h3>Instagram</h3>
+                    <p>Siga-nos para dicas diárias e inspirações financeiras!</p>
+                    <a href="https://www.instagram.com/rl_financialcontrol/" target="_blank">@rl_financialcontrol</a>
+                </div>
+            </div>
+
+            <p class="contact-outro">Prefere um contato mais direto? Clique no número do WhatsApp para iniciar uma conversa agora!</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 RL Financial. Todos os direitos reservados. Plantando futuro, colhendo tranquilidade.</p>
+        <div class="footer-simple-content">
+            <div class="footer-brand">
+                <img src="img/logo.png" alt="RL Financial Logo" class="footer-logo">
+                <p>Sua jornada para uma vida financeira sem neuras.</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 RL Financial. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
