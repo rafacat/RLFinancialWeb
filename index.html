@@ -19,7 +19,7 @@
       </div>
       <div class="header-actions">
           <button class="login-btn">Entrar</button>
-          <button class="signup-btn primary">Cadastrar</button>
+          <button class="signup-btn primary">Comece-já</button>
       </div>
   </header>
 
@@ -42,10 +42,16 @@
             <img src="img/plantandoDinheiro.jpeg" alt="Pessoas sorrindo e plantando dinheiro em um cofrinho">
         </section>
 
+        <div id="area-deslogada">
+            <h2>Bem-vindo à sua Jornada Financeira!</h2>
+            <p>Acesse sua ferramenta de controle de gastos e comece a organizar suas finanças hoje mesmo.</p>
+            <button id="btn-abrir-popup">Entrar no Sistema</button>
+        </div>
+
         <section id="ferramenta-gastos">
             <h2>Organize Seus Gastos de Forma Simples</h2>
             <p>Descubra para onde seu dinheiro está indo e como otimizar suas finanças. Categorize seus gastos em Útil e Removível.</p>
-            <form>
+            <form id="form-gasto">
                 <label for="descricao-gasto">Onde você gastou?</label>
                 <input type="text" id="descricao-gasto" placeholder="Ex: Café na padaria" required>
 
@@ -69,7 +75,19 @@
                 <p>Gastos Removíveis: R$ <span id="total-removivel">0.00</span></p>
                 <p>Gastos de Investimento: R$ <span id="total-investimento">0.00</span></p>
             </div>
+            <button id="btn-logout">Sair</button>
         </section>
+
+        <div id="popup-overlay">
+            <div id="popup-content">
+                <span id="btn-fechar-popup">&times;</span>
+                <h3>Faça seu Login</h3>
+                <input type="text" id="username" placeholder="Usuário" autocomplete="username">
+                <input type="password" id="password" placeholder="Senha" autocomplete="current-password">
+                <button onclick="fazerLogin()">Acessar</button>
+                <p id="login-message"></p>
+            </div>
+        </div>
 
         <section id="dicas-economia">
             <h2>Dicas Otimistas para o Seu Bolso!</h2>

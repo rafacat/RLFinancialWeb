@@ -216,6 +216,269 @@ header {
    display: block; /* Garante que ela se comporte como um bloco para o margin: auto */
 }
 
+/* SEÇÃO DESLOGADA */
+#area-deslogada {
+   text-align: center;
+   padding: 60px 40px;
+   background-color: var(--almost-black);
+   max-width: 500px;
+   margin: 50px auto;
+   border-radius: 15px;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+   border: 1px solid var(--secondary-color);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+#area-deslogada h2 {
+   color: var(--primary-color);
+   font-size: 2.5em;
+   margin-bottom: 25px;
+}
+
+#area-deslogada p {
+   font-size: 1.2em;
+   margin-bottom: 35px;
+   color: var(--text-medium);
+   max-width: 90%;
+   text-align: center;
+}
+
+#btn-abrir-popup { /* Novo ID para o botão que abre o pop-up */
+   background-color: var(--primary-color);
+   color: var(--almost-black);
+   padding: 18px 40px;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   font-size: 1.4em;
+   font-weight: 800;
+   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+   box-shadow: 0 6px 15px rgba(35, 207, 147, 0.6);
+}
+
+#btn-abrir-popup:hover {
+   background-color: var(--secondary-color);
+   transform: translateY(-5px);
+   box-shadow: 0 10px 25px rgba(35, 207, 147, 0.9);
+}
+
+/* POP-UP DE LOGIN */
+#popup-overlay {
+   display: none; /* Oculto por padrão */
+   position: fixed; /* Fixa o pop-up na tela */
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semitransparente */
+   display: flex; /* Para centralizar o conteúdo do pop-up */
+   justify-content: center;
+   align-items: center;
+   z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+#popup-content {
+   background-color: var(--almost-black); /* Fundo escuro para o pop-up */
+   padding: 30px 40px;
+   border-radius: 15px;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Sombra mais forte para destaque */
+   position: relative; /* Para posicionar o botão de fechar */
+   max-width: 450px; /* Largura máxima para o pop-up */
+   width: 90%; /* Responsivo */
+   text-align: center;
+   border: 1px solid var(--secondary-color); /* Borda como nas seções */
+}
+
+#btn-fechar-popup {
+   position: absolute;
+   top: 15px;
+   right: 20px;
+   font-size: 2em;
+   color: var(--text-medium);
+   cursor: pointer;
+   transition: color 0.3s ease;
+}
+
+#btn-fechar-popup:hover {
+   color: var(--red-alert); /* Vermelho suave ao passar o mouse */
+}
+
+#popup-content h3 {
+   color: var(--primary-color);
+   font-size: 2em;
+   margin-bottom: 25px;
+}
+
+#popup-content input {
+   display: block;
+   width: calc(100% - 24px);
+   padding: 14px 12px;
+   margin-bottom: 20px;
+   border: 1px solid var(--tertiary-color);
+   border-radius: 8px;
+   font-size: 1.1em;
+   background-color: var(--dark-green);
+   color: var(--text-light);
+}
+
+#popup-content input::placeholder {
+   color: var(--text-medium);
+}
+
+#popup-content button {
+   background-color: var(--primary-color); /* Botão de login do pop-up */
+   color: var(--almost-black);
+   padding: 15px 30px;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   font-size: 1.2em;
+   font-weight: bold;
+   transition: background-color 0.3s ease;
+   box-shadow: 0 4px 10px rgba(35, 207, 147, 0.4);
+}
+
+#popup-content button:hover {
+   background-color: var(--secondary-color);
+}
+
+#login-message {
+   color: var(--red-alert);
+   margin-top: 15px;
+   font-weight: bold;
+   font-size: 1.1em;
+}
+
+/* SEÇÃO FERRAMENTA DE GASTOS (mantida como o último ajuste) */
+#ferramenta-gastos {
+   display: none; /* Oculto por padrão, JavaScript vai mostrar */
+   padding: 60px 40px;
+}
+
+#ferramenta-gastos h2 {
+   font-size: 2.8em;
+}
+
+#ferramenta-gastos p {
+   font-size: 1.2em;
+   margin-bottom: 35px;
+   color: var(--text-medium);
+   text-align: center;
+   max-width: 80%;
+}
+
+#form-gasto {
+   width: 100%;
+   max-width: 600px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+#form-gasto label {
+   display: block;
+   margin-bottom: 10px;
+   font-weight: bold;
+   color: var(--text-light);
+   font-size: 1.1em;
+   text-align: left;
+   width: 100%;
+}
+
+#form-gasto input[type="text"],
+#form-gasto input[type="number"],
+#form-gasto select {
+   width: calc(100% - 24px);
+   padding: 14px 12px;
+   margin-bottom: 25px;
+   border: 1px solid var(--secondary-color);
+   border-radius: 8px;
+   font-size: 1.1em;
+   background-color: var(--dark-green);
+   color: var(--text-light);
+}
+#form-gasto input::placeholder {
+   color: var(--text-medium);
+}
+#form-gasto select {
+   appearance: none;
+   background-image: url('data:image/svg+xml;utf8,<svg fill="%23f0f0f0" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+   background-repeat: no-repeat;
+   background-position: right 10px center;
+   background-size: 20px;
+}
+
+#form-gasto button[type="submit"] {
+   background-color: var(--primary-color);
+   color: var(--almost-black);
+   padding: 18px 40px;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   font-size: 1.4em;
+   font-weight: 800;
+   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+   box-shadow: 0 6px 15px rgba(35, 207, 147, 0.6);
+   margin-top: 20px;
+}
+
+#form-gasto button[type="submit"]:hover {
+   background-color: var(--secondary-color);
+   transform: translateY(-5px);
+   box-shadow: 0 10px 25px rgba(35, 207, 147, 0.9);
+}
+
+#resumo-gastos {
+   margin-top: 50px;
+   padding-top: 30px;
+   border-top: 2px dashed var(--secondary-color);
+   text-align: left;
+   width: 100%;
+   max-width: 600px;
+}
+
+#resumo-gastos h3 {
+   text-align: center;
+   margin-bottom: 25px;
+   color: var(--text-light);
+   font-size: 1.6em;
+}
+
+#resumo-gastos p {
+   font-size: 1.2em;
+   margin-bottom: 12px;
+   text-align: left;
+   color: var(--text-medium);
+}
+
+#resumo-gastos p span {
+   font-weight: bold;
+   color: var(--primary-color);
+}
+
+/* BOTÃO DE SAIR */
+#btn-logout {
+   margin-top: 40px;
+   background-color: var(--red-alert);
+   color: var(--text-light);
+   padding: 12px 20px;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   font-size: 1.1em;
+   transition: background-color 0.3s ease;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: fit-content;
+}
+
+#btn-logout:hover {
+   background-color: #FF8A80;
+}
+
 /* Seção de Dicas de Economia */
 #dicas-economia {
    background-color: var(--dark-green); /* Um verde escuro um pouco diferente para esta seção */
