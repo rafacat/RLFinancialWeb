@@ -11,6 +11,11 @@
 
     --text-light: #f0f0f0;      /* Texto claro em fundo escuro */
     --text-medium: #c0c0c0;     /* Texto médio para informações secundárias */
+    --red-alert: #FF4D4D;       /* Vermelho para mensagens de erro, destaque negativo, etc. */
+}
+
+html {
+   scroll-behavior: smooth; /* Isso é tudo! */
 }
 
 body {
@@ -24,20 +29,30 @@ body {
 
 /* Estilos para o Cabeçalho (Header) */
 header {
-   background-color: var(--almost-black); /* Fundo escuro do cabeçalho */
-   padding: 15px 40px; /* Espaçamento interno: um pouco menos em cima/baixo, mais nas laterais */
-   box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* Sombra para dar profundidade */
-
-   /* Configurações do Flexbox para alinhar os conteúdos principais do header */
-   display: flex; /* Transforma o header em um container flexível */
-   justify-content: space-between; /* Empurra o conteúdo de 'branding' para a esquerda e 'ações' para a direita */
-   align-items: center; /* Alinha os itens verticalmente ao centro do header */
+   background-color: var(--almost-black);
+   color: var(--text-light);
+   padding: 20px 40px;
+   display: flex;
+   justify-content: space-between; /* Para espaçar o branding e as ações */
+   align-items: center;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+   top: 0;
+   width: 100%;
+   z-index: 999; /* Garante que o header fique acima de outros elementos */
+   box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
 }
 
 /* Grupo do Logo e Nome da Empresa */
 .header-branding {
    display: flex;
    align-items: center;
+}
+
+.header-branding .logo {
+   height: 50px; /* Ajuste o tamanho do seu logo */
+   margin-right: 15px;
+   border-radius: 50%; /* Se o logo for redondo */
+   box-shadow: 0 0 10px rgba(35, 207, 147, 0.3);
 }
 
 .logo {
@@ -51,6 +66,14 @@ header {
    margin: 0;
    font-size: 2em; /* Aumentei um pouco o tamanho da fonte do nome da empresa para 2em. */
    letter-spacing: 1px;
+   font-weight: 700;
+}
+
+/* Container dos botões de autenticação no header (Entrar, Começar Agora) */
+#header-auth-buttons {
+   display: flex; /* Para alinhar os botões lado a lado */
+   align-items: center;
+   gap: 15px; /* Espaço entre os botões */
 }
 
 /* Grupo dos Botões de Ação (Entrar e Cadastrar) */
@@ -67,6 +90,16 @@ header {
    border-radius: 8px; /* Cantos um pouco mais arredondados para um toque moderno */
    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
 }
+
+.login-btn, .signup-btn {
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 
 /* Estilo para o botão de Entrar */
 .login-btn {
@@ -97,6 +130,39 @@ header {
    box-shadow: 0 0 20px rgba(35, 207, 147, 0.9); /* Sombra mais forte no hover */
 }
 
+#header-user-info #user-greeting {
+   white-space: nowrap; /* Evita que o texto quebre em várias linhas */
+    /* Você pode adicionar um padding-right se quiser um espaço extra à direita do texto */
+    /* padding-right: 5px; */
+}
+
+#header-user-info {
+   display: flex; /* Mantenha como flex para alinhamento */
+   align-items: center; /* CENTRALIZA VERTICALMENTE os itens (texto e botão) */
+   gap: 20px; /* AUMENTE O ESPAÇAMENTO entre o texto e o botão. Experimente valores como 20px, 25px ou 30px. */
+   color: var(--text-light);
+   font-size: 1.1em;
+   font-weight: 600;
+}
+
+/* Botão Sair específico do header */
+#header-logout-btn-header {
+   background-color: var(--red-alert);
+   color: var(--text-light);
+   padding: 8px 15px; /* Mantém o padding atual */
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 0.9em;
+   font-weight: 600;
+   transition: background-color 0.3s ease;
+   /* Adicione um display block se houver alguma interação estranha de linha */
+   /*display: block; */
+}
+
+#header-logout-btn-header:hover {
+   background-color: #c82333; /* Um tom um pouco mais escuro de vermelho no hover */
+}
 
 /* Estilos para a Navegação Principal (abaixo do header) */
 .main-nav {
@@ -353,7 +419,11 @@ header {
 
 /* SEÇÃO FERRAMENTA DE GASTOS (mantida como o último ajuste) */
 #ferramenta-gastos {
-   display: none; /* Oculto por padrão, JavaScript vai mostrar */
+   display: flex; /* Oculto por padrão, JavaScript vai mostrar */
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   min-width: 80vh;
    padding: 60px 40px;
 }
 
@@ -814,7 +884,7 @@ header {
 footer {
    background-color: var(--almost-black); /* Fundo escuro para o rodapé */
    color: var(--text-medium); /* Cor de texto padrão para o rodapé */
-   padding: 60px 20px 30px; /* Padding generoso: cima, lados, baixo */
+   padding: 40px 20px; /* Mais padding para um visual espaçoso */
    border-top: 1px solid var(--tertiary-color); /* Uma linha sutil no topo */
    text-align: center; /* Centraliza todo o conteúdo */
 }
@@ -825,14 +895,31 @@ footer {
    justify-content: center; /* Centraliza horizontalmente */
    align-items: center; /* Centraliza verticalmente (se necessário, com altura) */
    flex-direction: column; /* Coloca logo e slogan um abaixo do outro */
-   max-width: 600px; /* Limita a largura do bloco central */
-   margin: 0 auto 40px auto; /* Centraliza o bloco e adiciona margem para o copyright */
+   max-width: 960px; /* Limita a largura do bloco central */
+   margin: 0 auto; /* Centraliza o conteudo */
+   padding-bottom: 20px;
+}
+
+/* Ajustes para o Logo no Footer */
+.footer-brand .footer-logo {
+   width: 80px; /* Tamanho do logo */
+   height: 80px; /* Mantém a altura igual à largura para um círculo perfeito */
+   object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+   border-radius: 50%; /* A CEREJA DO BOLO: Torna o logo perfeitamente redondo */
+   box-shadow: 0 0 15px rgba(35, 207, 147, 0.4); /* Sombra suave para destacar */
+   margin-bottom: 10px; /* Espaço entre o logo e a frase */
+   transition: transform 0.3s ease; /* Transição para um efeito hover */
+}
+
+.footer-brand .footer-logo:hover {
+   transform: scale(1.05); /* Pequeno zoom no hover */
 }
 
 .footer-brand {
-   /* Não precisa de flex:1 ou min-width/max-width aqui,
-      pois ele é o único item no footer-simple-content */
-   text-align: center; /* Garante que logo e slogan estejam centralizados */
+   display: flex; /* Usa flexbox para alinhar o logo e a frase */
+   flex-direction: column; /* Coloca o logo e a frase em coluna */
+   align-items: center; /* Centraliza horizontalmente o logo e a frase */
+   margin-bottom: 20px; /* Espaço abaixo da marca se for necessário */
 }
 
 .footer-logo {
@@ -841,23 +928,40 @@ footer {
    margin-bottom: 15px;
 }
 
+/* Ajustes para a Frase Abaixo do Logo */
 .footer-brand p {
-   font-size: 1.1em; /* Slogan um pouco maior */
-   line-height: 1.6;
-   color: var(--text-light);
-   max-width: 400px; /* Limita a largura do slogan */
-   margin: 0 auto; /* Centraliza o slogan */
+   font-size: 1.1em; /* Tamanho da fonte um pouco maior */
+   color: var(--text-light); /* Cor mais clara para o texto principal */
+   margin: 0; /* Remove margens padrão para controle total */
+   padding: 0 15px; /* Adiciona um pouco de padding lateral para não colar nas bordas em telas pequenas */
+   white-space: nowrap; /* A CEREJA DO BOLO: Tenta manter a frase em uma única linha */
+   overflow: hidden; /* Oculta qualquer texto que exceda a linha */
+   text-overflow: ellipsis; /* Adiciona "..." se o texto for cortado */
+   max-width: 100%; /* Garante que a frase não ultrapasse o contêiner em telas pequenas */
+   display: inline-block; /* Ajuda a respeitar o white-space e max-width */
 }
 
+/* Estilos para o Conteúdo Inferior do Footer */
 .footer-bottom {
-   border-top: 1px solid var(--tertiary-color); /* Linha divisória antes do copyright */
+   border-top: 1px dashed var(--dark-green);
    padding-top: 20px;
    margin-top: 20px;
+   /* Remover text-align: center; daqui, pois o flexbox fará o trabalho */
+   /* text-align: center; */
+
+   /* **AQUI ESTÁ A MUDANÇA PRINCIPAL: Usar Flexbox para centralizar o conteúdo** */
+   display: flex; /* Ativa o Flexbox */
+   justify-content: center; /* Centraliza horizontalmente o conteúdo (a frase p) */
+   align-items: center; /* Centraliza verticalmente o conteúdo (se houver espaço) */
+   width: 100%; /* Garante que o footer-bottom ocupe toda a largura disponível */
 }
 
 .footer-bottom p {
+   margin: 0; /* Mantenha para remover margens padrão */
    font-size: 0.9em;
    color: var(--text-medium);
+   /* Remover text-align: center; daqui também, já que o pai flexbox fará o trabalho */
+   /* text-align: center; */
 }
 
 /* Media Queries para Responsividade (ajustes para telas menores) */
@@ -1070,8 +1174,9 @@ footer {
 }
 
 .footer-brand p {
-   font-size: 1em;
-   max-width: 90%;
+   white-space: normal; /* Permite que a frase quebre linha em telas menores */
+   text-overflow: clip; /* Remove os "..." para quebrar normalmente */
+   max-width: 90%; /* Ajuste a largura máxima se necessário */
 }
 
 }

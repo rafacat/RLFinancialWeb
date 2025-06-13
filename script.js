@@ -1,146 +1,151 @@
-document.addEventListener('DOMContentLoaded', () => {
-   // Seleciona todos os elementos "Leia mais..." nos cards de dicas
-   const readMoreSpans = document.querySelectorAll('.tip-card .read-more');
+document.addEventListener('DOMContentLoaded', () => { // É bom envolver tudo dentro de DOMContentLoaded
 
-   readMoreSpans.forEach(span => {
-       span.addEventListener('click', (event) => {
-           // Previne o comportamento padrão (se fosse um link)
-           event.preventDefault();
+    // --- Referências de Elementos ---
+    // Header elements
+    const headerAuthButtons = document.getElementById('header-auth-buttons');
+    const headerLoginBtn = document.getElementById('header-login-btn');
+    const headerUserInfo = document.getElementById('header-user-info');
+    const userGreeting = document.getElementById('user-greeting');
+    const headerLogoutBtnHeader = document.getElementById('header-logout-btn-header');
 
-           // Encontra o artigo pai (o card da dica)
-           const parentArticle = event.target.closest('.tip-card');
-           if (!parentArticle) return; // Garante que encontrou o pai
 
-           // Encontra o player de podcast dentro deste artigo
-           const podcastPlayer = parentArticle.querySelector('.podcast-player');
-           const audioPlayer = parentArticle.querySelector('.podcast-player audio');
-
-           if (podcastPlayer) {
-               // Alterna a visibilidade do player
-               if (podcastPlayer.style.display === 'none' || podcastPlayer.style.display === '') {
-                   // Oculta todos os outros players antes de mostrar este
-                   document.querySelectorAll('.podcast-player').forEach(player => {
-                       if (player !== podcastPlayer) {
-                           player.style.display = 'none';
-                           player.querySelector('audio').pause(); // Pausa outros áudios
-                           player.querySelector('audio').currentTime = 0; // Volta para o início
-                       }
-                   });
-                   podcastPlayer.style.display = 'block'; // Mostra o player
-                   audioPlayer.load(); // Carrega o áudio
-                   audioPlayer.play(); // Tenta reproduzir o áudio automaticamente
-                   span.textContent = 'Ocultar áudio'; // Muda o texto
-               } else {
-                   podcastPlayer.style.display = 'none'; // Oculta o player
-                   audioPlayer.pause(); // Pausa o áudio
-                   audioPlayer.currentTime = 0; // Volta para o início do áudio
-                   span.textContent = 'Leia mais...'; // Volta o texto original
-               }
-           }
-       });
-   });
-
-   // Opcional: Pausar outros áudios quando um novo começar a tocar
-   const allAudioPlayers = document.querySelectorAll('audio');
-   allAudioPlayers.forEach(audio => {
-       audio.addEventListener('play', (event) => {
-           allAudioPlayers.forEach(otherAudio => {
-               if (otherAudio !== event.target) {
-                   otherAudio.pause();
-                   otherAudio.currentTime = 0; // Volta para o início
-               }
-           });
-       });
-   });
-});
-
-  // Referências aos elementos HTML
+    // Area Deslogada / Pop-up de Login
     const areaDeslogada = document.getElementById('area-deslogada');
-    const btnAbrirPopup = document.getElementById('btn-abrir-popup'); // ID do novo botão
+    const btnAbrirPopup = document.getElementById('btn-abrir-popup');
     const popupOverlay = document.getElementById('popup-overlay');
     const btnFecharPopup = document.getElementById('btn-fechar-popup');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     const loginMessage = document.getElementById('login-message');
+
+    // Ferramenta de Gastos
     const ferramentaGastos = document.getElementById('ferramenta-gastos');
-    const btnLogout = document.getElementById('btn-logout');
+    const btnLogout = document.getElementById('btn-logout'); // Botão Sair dentro da ferramenta
 
-    // --- Funções de Controle ---
 
-    // Função para abrir o pop-up
-    btnAbrirPopup.addEventListener('click', () => {
-        popupOverlay.style.display = 'flex'; // Mostra o overlay do pop-up (usando flex para centralizar)
-        loginMessage.textContent = ''; // Limpa qualquer mensagem de erro anterior
-        usernameInput.value = ''; // Limpa os campos ao abrir
+    // --- Variáveis de Estado ---
+    let loggedInUser = null; // Para armazenar o nome do usuário logado
+
+
+    // --- Funções Auxiliares ---
+
+    // Função para atualizar o estado da UI (header, seções)
+    function updateUI(isLoggedIn) {
+        if (isLoggedIn) {
+            // Oculta botões de auth no header, mostra info do usuário
+            headerAuthButtons.style.display = 'none';
+            headerUserInfo.style.display = 'flex'; // Usar flex para alinhar
+
+            // Atualiza o nome do usuário
+            userGreeting.textContent = `Olá, ${loggedInUser || 'Usuário'}!`;
+
+            // Oculta a área deslogada e mostra a ferramenta
+            areaDeslogada.style.display = 'none';
+            ferramentaGastos.style.display = 'flex'; // Usar flex para centralizar
+
+            // Garante que o pop-up esteja fechado
+            popupOverlay.style.display = 'none';
+
+        } else {
+            // Mostra botões de auth no header, oculta info do usuário
+            headerAuthButtons.style.display = 'flex';
+            headerUserInfo.style.display = 'none';
+
+            // Mostra a área deslogada e oculta a ferramenta
+            areaDeslogada.style.display = 'flex'; // Usar flex para centralizar
+            ferramentaGastos.style.display = 'none';
+
+            // Garante que o pop-up esteja fechado
+            popupOverlay.style.display = 'none';
+        }
+    }
+
+
+    // --- Funções de Login/Logout ---
+
+    // Função principal de login
+    // Esta função será chamada pelo botão "Acessar" do pop-up
+    window.fazerLogin = function() { // Exposto globalmente para o onclick no HTML
+        const username = usernameInput.value.trim(); // Trim para remover espaços
+        const password = passwordInput.value.trim();
+
+        // SIMULAÇÃO DE LOGIN: em um ambiente real, você faria uma requisição para um servidor
+        if (username === 'admin' && password === 'admin123') {
+            loggedInUser = username; // Armazena o nome do usuário
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('username', loggedInUser); // Armazena o nome do usuário
+
+            alert('Login bem-sucedido! Bem-vindo(a) à sua ferramenta de gastos.');
+            updateUI(true); // Atualiza a UI para o estado logado
+
+        } else {
+            loginMessage.textContent = 'Usuário ou senha incorretos.';
+            usernameInput.value = '';
+            passwordInput.value = '';
+        }
+    };
+
+    // Função de Logout Comum
+    function performLogout() {
+        if (confirm('Tem certeza que deseja sair?')) {
+            loggedInUser = null; // Limpa o usuário logado
+            localStorage.removeItem('loggedIn');
+            localStorage.removeItem('username'); // Remove o nome do usuário
+
+            alert('Você saiu do sistema.');
+            updateUI(false); // Atualiza a UI para o estado deslogado
+        }
+    }
+
+    // --- Event Listeners ---
+
+    // Cabeçalho: Clicar no botão "Entrar" abre o pop-up
+    headerLoginBtn.addEventListener('click', () => {
+        popupOverlay.style.display = 'flex';
+        loginMessage.textContent = ''; // Limpa mensagem de erro
+        usernameInput.value = ''; // Limpa campos
         passwordInput.value = '';
     });
 
-    // Função para fechar o pop-up
-    btnFecharPopup.addEventListener('click', () => {
-        popupOverlay.style.display = 'none'; // Oculta o overlay do pop-up
+    // Área Deslogada: Clicar no botão "Entrar no Sistema" (principal) abre o pop-up
+    btnAbrirPopup.addEventListener('click', () => {
+        popupOverlay.style.display = 'flex';
+        loginMessage.textContent = ''; // Limpa mensagem de erro
+        usernameInput.value = ''; // Limpa campos
+        passwordInput.value = '';
     });
 
-    // Opcional: Fechar pop-up clicando fora do conteúdo (no overlay)
+    // Pop-up: Fechar (botão X)
+    btnFecharPopup.addEventListener('click', () => {
+        popupOverlay.style.display = 'none';
+    });
+
+    // Pop-up: Fechar (clicar fora do conteúdo)
     popupOverlay.addEventListener('click', (event) => {
         if (event.target === popupOverlay) {
             popupOverlay.style.display = 'none';
         }
     });
 
+    // Botão Sair dentro da Ferramenta de Gastos
+    btnLogout.addEventListener('click', performLogout);
 
-    // Função principal de login
-    function fazerLogin() {
-        const username = usernameInput.value;
-        const password = passwordInput.value;
+    // Botão Sair no Header
+    headerLogoutBtnHeader.addEventListener('click', performLogout);
 
-        // --- LÓGICA DE AUTENTICAÇÃO SIMPLIFICADA ---
-        if (username === 'admin' && password === 'admin123') { // Credenciais de exemplo
-            // Login bem-sucedido:
-            popupOverlay.style.display = 'none'; // Oculta o pop-up
-            areaDeslogada.style.display = 'none'; // Oculta a área de boas-vindas
-            ferramentaGastos.style.display = 'flex'; // Mostra a ferramenta de gastos (usando flex)
 
-            alert('Login bem-sucedido! Bem-vindo(a) à sua ferramenta de gastos.');
-
-            // Armazenar estado de login no localStorage para persistência
-            localStorage.setItem('loggedIn', 'true');
-
-        } else {
-            // Login falhou:
-            loginMessage.textContent = 'Usuário ou senha incorretos.';
-            usernameInput.value = '';
-            passwordInput.value = '';
-        }
-    }
-
-    // Função de Logout
-    btnLogout.addEventListener('click', () => {
-        if (confirm('Tem certeza que deseja sair?')) {
-            ferramentaGastos.style.display = 'none'; // Oculta a ferramenta de gastos
-            areaDeslogada.style.display = 'flex'; // Mostra a área de boas-vindas
-            popupOverlay.style.display = 'none'; // Garante que o pop-up esteja oculto
-
-            // Remove o estado de login do localStorage
-            localStorage.removeItem('loggedIn');
-
-            alert('Você saiu do sistema.');
-        }
-    });
-
-    // --- Verificação de Estado de Login ao Carregar a Página ---
+    // --- Inicialização ao Carregar a Página ---
+    // Verifica o estado de login ao carregar a página
     window.addEventListener('load', () => {
-        const loggedIn = localStorage.getItem('loggedIn');
-        if (loggedIn === 'true') {
-            areaDeslogada.style.display = 'none';
-            ferramentaGastos.style.display = 'flex'; // Usar flex para herdar o alinhamento
-        } else {
-            areaDeslogada.style.display = 'flex'; // Usar flex para o alinhamento
-            ferramentaGastos.style.display = 'none';
-            popupOverlay.style.display = 'none'; // Garante que o pop-up esteja oculto no carregamento
+        const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+        if (isLoggedIn) {
+            loggedInUser = localStorage.getItem('username'); // Recupera o nome do usuário
         }
+        updateUI(isLoggedIn);
     });
 
-    // --- Lógica de Gasto (se você já tiver, mantenha aqui ou ajuste) ---
+
+    // --- Lógica de Gasto (já existente, mantida) ---
     const formGasto = document.getElementById('form-gasto');
     const totalGeralSpan = document.getElementById('total-geral');
     const totalUtilSpan = document.getElementById('total-util');
@@ -180,3 +185,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         formGasto.reset();
     });
+
+    // Lógica do Podcast (já existente, mantida)
+    const readMoreSpans = document.querySelectorAll('.tip-card .read-more');
+
+    readMoreSpans.forEach(span => {
+        span.addEventListener('click', (event) => {
+            event.preventDefault();
+            const parentArticle = event.target.closest('.tip-card');
+            if (!parentArticle) return;
+            const podcastPlayer = parentArticle.querySelector('.podcast-player');
+            const audioPlayer = parentArticle.querySelector('.podcast-player audio');
+
+            if (podcastPlayer) {
+                document.querySelectorAll('.podcast-player').forEach(player => {
+                    if (player !== podcastPlayer) {
+                        player.style.display = 'none';
+                        player.querySelector('audio').pause();
+                        player.querySelector('audio').currentTime = 0;
+                    }
+                });
+
+                if (podcastPlayer.style.display === 'none' || podcastPlayer.style.display === '') {
+                    podcastPlayer.style.display = 'block';
+                    if (audioPlayer) audioPlayer.play();
+                } else {
+                    podcastPlayer.style.display = 'none';
+                    if (audioPlayer) audioPlayer.pause();
+                }
+            }
+        });
+    });
+});
